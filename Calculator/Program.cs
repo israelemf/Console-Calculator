@@ -1,10 +1,11 @@
 ﻿using System;
+using CalculatorLibrary;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Calculator
+namespace CalculatorProgram
 {
     class Program
     {
@@ -15,6 +16,7 @@ namespace Calculator
             Console.WriteLine("Calculadora de Console em C#\r");
             Console.WriteLine("------------------------------\n");
 
+            Calculator calculator = new Calculator();
             while (!endApp)
             {
 
@@ -55,7 +57,7 @@ namespace Calculator
 
                 try
                 {
-                    result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                    result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                     if (double.IsNaN(result))
                     {
                         Console.WriteLine("Essa operação resultaria em um erro matemático.\n");
@@ -75,6 +77,8 @@ namespace Calculator
 
                 Console.WriteLine("\n");
             }
+
+            calculator.Finish();
             return;
         }
     }
